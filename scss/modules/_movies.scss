@@ -1,0 +1,70 @@
+.movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    clear: both;
+}
+
+.movie {
+    width: 205px;
+    height: 288px;
+    position: relative;
+    margin-top: 85px;
+    border: 10px solid #111;
+    border-top: none;
+    border-radius: 0 0 13px 13px;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    &::before {
+        @include pos($t: -85px, $l: -10px);
+        @include size(calc(100% + 20px), 100%);
+        background: url(../images/roll.png) no-repeat top center;
+        background-size: 100% auto;
+        content: '';
+    }
+
+    &__title {
+        @include size(100%, auto);
+        @include pos($b: 0, $l: 0, $t: 85%);
+        background: rgba(255, 255, 255, .8);
+        font-weight: 500;
+        padding: 10px;
+        line-height: 1;
+        transition: all .2s;
+    }
+
+    img {
+        border-radius: 0 0 5px 5px;
+    }
+
+    &__info {
+        @include pos($t: 50px);
+        padding: 0 10px;
+        font-size: 13px;
+        line-height: 16px;
+        opacity: 0;
+        height: 77%;
+        overflow: hidden;
+        transition: all .4s ease-out;
+
+        b {
+            font-weight: 500;
+        }
+
+        p {
+            margin-top: 5px;
+        }
+    }
+
+    &:hover {
+        .movie__title {
+            top: .5%;
+            background: #fff;
+        }
+
+        .movie__info {
+            opacity: 1;
+        }
+    }
+}
