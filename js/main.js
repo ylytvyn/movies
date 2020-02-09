@@ -11,12 +11,27 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2';
 			getMovie();
 		});
 
+		$('.search__field').keypress((e) => {
+			e.stopPropagation();
+
+			if (e.keyCode === 13) {
+				getMovie();
+			}
+		});
+
+		$('.reviews__close').click(() => {
+			$('.window').addClass('hide');
+			$('.review').remove();
+		});
+
+
 		// Functions
 		function getMovie() {
 			let query = $('.search__field').val();
 
 			if (query !== '') {
 				$('body').addClass('loading');
+				$('.movie').remove();
 				
 				$.ajax({
 					url: `${API_URL}/search/movie`,
@@ -55,7 +70,44 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2';
 								</div>
 						   </div>`;
 
+			$('.movie').click(function(e) {
+				e.stopImmediatePropagation();
+				getReviews($(this).data('id'), $(this).find('.movie__title').text());
+			});
+
 			return movieDOM;
 		}
+
+		function getReviews(id, title) {
+			$('body').addClass('loading');
+
+			$.ajax({
+				url: `${API_URL}/movie/${id}/reviews`,
+				type: 'GET',
+				data: {
+					api_key: API_KEY
+				}
+			}).then((res) => {
+				if (res.results.length !== 0) {
+					res.results.forEach((review) => {
+						let reviewDOM = `<div class="review">
+											<h2>${review.author}</h2>
+											<p>${review.content}</p>
+										</div>`;
+	
+						$('.reviews').append(reviewDOM);
+					});
+
+					$('.reviews__title').text(title);
+					$('.window').removeClass('hide');
+					
+				} else {
+					alert('No reviews found.');
+				}
+
+				$('body').removeClass('loading');
+			});
+		}
+
 	});
 })(jQuery);
