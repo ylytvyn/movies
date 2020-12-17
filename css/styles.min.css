@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css?family=Permanent+Marker|Prompt:300,500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker|Prompt:300,500,700|Caveat:500&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -94,7 +94,15 @@ body {
   color: #830303;
   text-shadow: 4px 3px 0 #000;
   margin-bottom: 20px;
-  float: left;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .movies {
@@ -182,7 +190,6 @@ body {
 }
 
 .search {
-  float: right;
   margin-top: 25px;
 }
 
@@ -209,7 +216,7 @@ body {
 
 .loading::before {
   content: '';
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -279,5 +286,117 @@ body {
 .review p {
   font-size: 13px;
   line-height: 15px;
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-bottom: 40px;
+  font: 500 20px "Caveat", cursive;
+}
+
+.pagination__item {
+  cursor: pointer;
+  padding: 3px 5px 3px 0;
+  border: 1px solid #000;
+  text-align: center;
+  margin: 0 2px 5px;
+  -ms-flex-preferred-size: 35px;
+      flex-basis: 35px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.pagination__item--active, .pagination__item:hover {
+  background-color: #830303;
+  border-color: #830303;
+  color: #fff;
+}
+
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 30px;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.buttons p {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+.btn {
+  font: 500 20px "Caveat", cursive;
+  border: 1px solid #000;
+  padding: 5px 15px 5px 10px;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  margin-right: 10px;
+}
+
+.btn--active, .btn:hover {
+  background-color: #830303;
+  border-color: #830303;
+  color: #fff;
+}
+
+.dialog-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+
+.dialog {
+  width: 500px;
+  padding: 30px 50px;
+  background: #fff;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
+  font-size: 17px;
+  font-weight: 500;
+  text-align: center;
+  -webkit-animation: window .5s 1;
+          animation: window .5s 1;
+  z-index: 9;
+}
+
+@-webkit-keyframes window {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: 50px;
+  }
+}
+
+@keyframes window {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: 50px;
+  }
 }
 /*# sourceMappingURL=styles.min.css.map */

@@ -19,13 +19,24 @@
 </head>
 <body>
 	<div class="container">
-		<h1 class="title">MOVIES</h1>
-		<form action="#" class="search">
-			<input type="text" class="search__field" placeholder="Type the movie...">
-			<button class="search__btn" type="button">Search</button>
-		</form>
+		<nav class="header">
+			<h1 class="title">MOVIES</h1>
+			<form action="#" class="search">
+				<input type="text" class="search__field" placeholder="Type the movie...">
+				<button class="search__btn" type="button">Search</button>
+			</form>
+		</nav>
+
+		<div class="buttons">
+			<p>Get Movies:</p>
+			<button type="button" class="btn btn--upcoming">Upcoming</button>
+			<button type="button" class="btn btn--popular">Popular</button>
+			<button type="button" class="btn btn--top">Top Rated</button>
+		</div>
 
 		<div class="movies"></div>
+
+		<ul class="pagination"></ul>
 	</div>
 	
 	<div class="window hide">
@@ -36,7 +47,7 @@
 	</div>
 
 	<!-- Scripts -->
-	<script src="js/libs/jquery-3.4.1.min.js"></script>
+	<script src="js/libs/jquery-3.5.1.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>

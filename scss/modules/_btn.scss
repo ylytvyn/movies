@@ -1,0 +1,29 @@
+.buttons {
+    display: flex;
+    margin-bottom: 30px;
+    align-items: baseline;
+
+    p {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .5px;
+        font-size: 18px;
+        margin-right: 20px;
+    }
+}
+
+.btn {
+    font: 500 20px $txt;
+    border: 1px solid #000;
+    padding: 5px 15px 5px 10px;
+    cursor: pointer;
+    transition: all .3s;
+    margin-right: 10px;
+
+    &--active,
+    &:hover {
+        background-color: #830303;
+        border-color: #830303;
+        color: #fff;
+    }
+}

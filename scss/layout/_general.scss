@@ -25,7 +25,7 @@ body, html {
 	clear: both;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Prompt:300,500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Prompt:300,500,700|Caveat:500&display=swap');
 
 body {
 	background: #f5f5f5 url(../images/bg.png) repeat-y 15px top;
@@ -40,5 +40,9 @@ body {
 	color: $red;
 	text-shadow: 4px 3px 0 #000;
 	margin-bottom: 20px;
-	float: left;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
 }
